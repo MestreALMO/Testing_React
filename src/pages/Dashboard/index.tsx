@@ -1,20 +1,26 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { Container } from './styles';
 
-const foods = ['batata-palha', 'batata palito', 'batata assada'];
+const foods = [
+  'batata-palha',
+  'batata palito',
+  'batata assada',
+  'batata frita',
+  'batata-cozida',
+  'batata batata',
+];
 
 const Dashboard: React.FC = () => {
-  const [counter, setCounter] = useState(1);
-
   const automaticHtml = useMemo(() => {
-    return foods.map(food => (
+    return foods.map((food, index) => (
       <>
-        {counter % 2 !== 0 ?? <p>test</p>}
+        {/* {index % 2 === 0 && <div>} */}
+        {index % 2 === 0 && <p>test</p>}
         <div>
           <p>{food}</p>
         </div>
-        {setCounter(counter + 1)}
+        {/* {index % 2 !== 0 && </div>} */}
       </>
     ));
   }, []);
